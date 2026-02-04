@@ -1,14 +1,10 @@
-.PHONY: all build-go copy-header deps run clean
+.PHONY: all build-go deps run clean
 
-all: build-go copy-header deps
+all: build-go deps
 
-# Build the Go shared library
+# Build the Go shared library (universal dylib)
 build-go:
-	cd go_hello && go build -buildmode=c-shared -o libhello.dylib .
-
-# Copy the header file to macos/Runner for Swift bridging
-copy-header: build-go
-	cp go_hello/libhello.h macos/Runner/
+	cd go_hello && ./build.sh
 
 # Install Flutter dependencies
 deps:

@@ -1,11 +1,20 @@
 import 'dart:ffi';
+import 'dart:io' show Platform;
 import 'package:ffi/ffi.dart';
 
 class HelloFFI {
   static DynamicLibrary? _lib;
 
   static DynamicLibrary get lib {
-    _lib ??= DynamicLibrary.process();
+    if (_lib == null) {
+      if (Platform.isMacOS) {
+        // Load from Frameworks folder in app bundle
+        // DynamicLibrary.open() searches LD_RUNPATH_SEARCH_PATHS which includes @executable_path/../Frameworks
+        _lib = DynamicLibrary.open('libhello.dylib');
+      } else {
+        _lib = DynamicLibrary.process();
+      }
+    }
     return _lib!;
   }
 

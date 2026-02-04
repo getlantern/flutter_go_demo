@@ -28,7 +28,8 @@
 		33CC10F62044A3C60003C045 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33CC10F42044A3C60003C045 /* MainMenu.xib */; };
 		33CC11132044BFA00003C045 /* MainFlutterWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC11122044BFA00003C045 /* MainFlutterWindow.swift */; };
 		78A318202AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 78A3181F2AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage */; };
-		AAAA00012044A3C60003C045 /* libhello.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAA00002044A3C60003C045 /* libhello.a */; };
+		AAAA00012044A3C60003C045 /* libhello.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAA00002044A3C60003C045 /* libhello.dylib */; };
+		AAAA00022044A3C60003C045 /* libhello.dylib in Bundle Framework */ = {isa = PBXBuildFile; fileRef = AAAA00002044A3C60003C045 /* libhello.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				AAAA00022044A3C60003C045 /* libhello.dylib in Bundle Framework */,
 			);
 			name = "Bundle Framework";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,8 +67,8 @@
 		331C80D5294CF71000263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		331C80D7294CF71000263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
 		333000ED22D3DE5D00554162 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
-		AAAA00002044A3C60003C045 /* libhello.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libhello.a; sourceTree = "<group>"; };
-		AAAA00032044A3C60003C045 /* libhello.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libhello.h; sourceTree = "<group>"; };
+		AAAA00002044A3C60003C045 /* libhello.dylib */ = {isa = PBXFileReference; lastKnownFileType = compiled.mach-o.dylib; name = libhello.dylib; path = ../go_hello/libhello.dylib; sourceTree = SOURCE_ROOT; };
+		AAAA00032044A3C60003C045 /* libhello.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libhello.h; path = ../go_hello/libhello.h; sourceTree = SOURCE_ROOT; };
 		AAAA00042044A3C60003C045 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		335BBD1A22A9A15E00E9071D /* GeneratedPluginRegistrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedPluginRegistrant.swift; sourceTree = "<group>"; };
 		33CC10ED2044A3C60003C045 /* flutter_go_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flutter_go_demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78A318202AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage in Frameworks */,
-				AAAA00012044A3C60003C045 /* libhello.a in Frameworks */,
+				AAAA00012044A3C60003C045 /* libhello.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +179,7 @@
 				33E51914231749380026EE4D /* Release.entitlements */,
 				33CC11242044D66E0003C045 /* Resources */,
 				33BA886A226E78AF003329D5 /* Configs */,
-				AAAA00002044A3C60003C045 /* libhello.a */,
+				AAAA00002044A3C60003C045 /* libhello.dylib */,
 				AAAA00032044A3C60003C045 /* libhello.h */,
 				AAAA00042044A3C60003C045 /* Runner-Bridging-Header.h */,
 			);
@@ -503,7 +505,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Runner",
+					"$(PROJECT_DIR)/../go_hello",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -644,7 +646,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Runner",
+					"$(PROJECT_DIR)/../go_hello",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -673,7 +675,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Runner",
+					"$(PROJECT_DIR)/../go_hello",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
