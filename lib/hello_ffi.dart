@@ -11,6 +11,9 @@ class HelloFFI {
         // Load from Frameworks folder in app bundle
         // DynamicLibrary.open() searches LD_RUNPATH_SEARCH_PATHS which includes @executable_path/../Frameworks
         _lib = DynamicLibrary.open('libhello.dylib');
+      } else if (Platform.isAndroid) {
+        // On Android, .so files in jniLibs are automatically loaded from the app's native library directory
+        _lib = DynamicLibrary.open('libhello.so');
       } else {
         _lib = DynamicLibrary.process();
       }
